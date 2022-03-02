@@ -1,5 +1,10 @@
+// ./src/components/Home/Home.js
+
 import { useState, useContext } from 'react'
-import PetsContext from './../context/PetsContext'
+import PetsContext from './../../context/Pets/PetsContext'
+
+import UsersContext from './../../context/Users/UsersContext'
+
 
 export default function Home() {
 
@@ -11,6 +16,15 @@ export default function Home() {
 		createPet
 	} = ctxPets
 
+	const ctxUsers = useContext(UsersContext)
+
+	const {
+		currentUser,
+		verifyingToken
+	} = ctxUsers
+
+
+	console.log(ctxUsers)
 
 	const [newPet, setNewPet] = useState({
 		name: "",
@@ -75,13 +89,22 @@ export default function Home() {
 			})
 		}
 		</div>
+
+
+		<hr />
+
+		<p>Verificar autenticación</p>
+		<button onClick={() => { verifyingToken() }}>VERIFICAR</button>
+
+		<h1>Tu usuario:</h1>
+		<p>{currentUser.name}</p>
+		<p>{currentUser.lastname}</p>
+		<p>{currentUser.email}</p>
+
+
 	</>
   )
 }
-
-
-
-
 
 
 
