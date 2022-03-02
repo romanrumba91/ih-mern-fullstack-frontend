@@ -72,6 +72,7 @@ export default function Register() {
           name="password"
           value={data.password}
           onChange={(evt) => { handleChange(evt) }}
+          type="password"
         />
 
         <button type="submit">Crear usuario</button>

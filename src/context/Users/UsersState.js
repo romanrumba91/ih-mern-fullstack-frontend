@@ -60,6 +60,30 @@ const UsersState = (props) => {
 
 	}
 	
+	const loginUser = async (form) => {
+
+		const res = await axiosClient.post("/api/users/login", form)
+
+		const token = res.data.data
+
+		dispatch({
+			type: "LOGIN_EXITOSO",
+			payload: token
+		})
+
+
+	}
+
+	const logoutUser = async () => {
+
+		console.log("Cerrando sesión")
+
+		dispatch({
+			type: "CERRAR_SESION"
+		})
+
+	}
+
 
 	return (
 		<UsersContext.Provider
@@ -67,7 +91,9 @@ const UsersState = (props) => {
 				currentUser: globalState.currentUser,
 				authStatus: globalState.authStatus,
 				registerUser,
-				verifyingToken
+				verifyingToken,
+				loginUser,
+				logoutUser
 			}}
 		>
 			{props.children}

@@ -23,8 +23,8 @@ export default function Home() {
 		verifyingToken
 	} = ctxUsers
 
+	console.log(currentUser)
 
-	console.log(ctxUsers)
 
 	const [newPet, setNewPet] = useState({
 		name: "",
