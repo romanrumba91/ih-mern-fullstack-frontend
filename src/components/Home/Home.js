@@ -1,5 +1,6 @@
 // ./src/components/Home/Home.js
-
+//usestate estado local
+//usecontext pro
 import { useState, useContext } from 'react'
 import PetsContext from './../../context/Pets/PetsContext'
 
